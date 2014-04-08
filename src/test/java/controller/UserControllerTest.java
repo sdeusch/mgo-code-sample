@@ -53,9 +53,9 @@ public class UserControllerTest {
 	}
 	
 	@Test
-	public void testFindUserByLastNameAndGender() throws Exception {
+	public void testFindUserByLastName() throws Exception {
 		
-		when(repo.findByLastNameAndGender("Jones", Gender.Male)).thenReturn(joes);
+		when(repo.findByLastName("Jones")).thenReturn(joes);
 				
 		List<User> result = controller.findUsers(joe.getLastName(), joe.getGender());		
 		assertEquals(joe, result.get(0));				

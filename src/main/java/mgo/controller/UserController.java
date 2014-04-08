@@ -25,9 +25,10 @@ public class UserController {
 	private UserRepository repository;
 
 	/**
-	 * Authenticates a user against user collection in MongoDB 
+	 * Authenticates a user against user collection in MongoDB
 	 * 
-	 * @param user - JSON object for user authentication
+	 * @param user
+	 *            - JSON object for user authentication
 	 * @return either a Welcome message on success or 403 error
 	 * @throws UnknownHostException
 	 */
@@ -44,35 +45,33 @@ public class UserController {
 				return String.format("Welcome %s!", user.getUsername());
 			}
 		}
-		
+
 		return String.format("Access Denied - Status 403");
 	}
-	
+
 	@RequestMapping("/users")
-    public @ResponseBody List<User> findUsers(@RequestParam(value="lastName", required=false) String lastName,
-    		@RequestParam(value="gender", required=false) Gender gender) {
-		
+	public @ResponseBody List<User> findUsers(
+			@RequestParam(value = "lastName", required = false) String lastName,
+			@RequestParam(value = "gender", required = false) Gender gender) {
+
 		/**
-		 * This section needs more work, possibly introducing 
+		 * This section needs more work, possibly introducing Criteria API and Pagination
 		 */
-		if(lastName!=null && gender !=null) {
-			return repository.findByLastNameAndGender(lastName, gender);
-		}
-		
-		if(lastName!=null) {
+	
+		if (lastName != null) {
 			return repository.findByLastName(lastName);
 		}
-		
-		if(gender!=null) {
+
+		if (gender != null) {
 			return repository.findByGender(gender);
 		}
-		
-		// or else return everything - test only 
+
+		// or else return everything - test only
 		return repository.findAll();
 	}
 
 	public void setRepository(UserRepository repository) {
 		this.repository = repository;
 	}
-		
+
 }

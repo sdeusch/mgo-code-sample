@@ -37,7 +37,7 @@ public class Application implements CommandLineRunner {
 		repository.deleteAll();
 
 		// save a couple of Users
-		repository.save(new User("demo", "password", "lastname", Gender.Unkown));
+		repository.save(new User("demo", "password", "lastname", Gender.Unknown));
 		repository.save(new User("Alice", "secret", "Smith", Gender.Female));
 		repository.save(new User("Bob", "secret", "Smith", Gender.Male));		
 		repository.save(new User("Tom", "2xa23!", "Oglesby", Gender.Male));

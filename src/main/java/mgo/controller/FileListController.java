@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequestMapping(value = "/v1")
 public class FileListController {
 
 	private static final Logger LOG = Logger.getLogger(FileListController.class);

@@ -14,7 +14,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -59,14 +58,6 @@ public class UserRepositoryTest {
 
 		List<User> find = repo.findByGender(Gender.Male);
 		assertEquals(joe, find.get(0));
-	}
-
-	@Test
-	public void testFindByLastNameAndGender() {
-		when(repo.findByLastNameAndGender(Mockito.any(String.class), Mockito.any(Gender.class))).thenReturn(people);
-
-		List<User> find = repo.findByLastNameAndGender("Smith", Gender.Female);
-		assertEquals(sue, find.get(0));
 	}
 
 }

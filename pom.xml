@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.springframework</groupId>
-	<artifactId>gs-rest-service</artifactId>
+	<artifactId>mgo-rest-service</artifactId>
 	<version>0.1.0</version>
 
 	<parent>
@@ -50,7 +50,8 @@
 	</dependencies>
 
 	<properties>
-		<start-class>hello.Application</start-class>
+		<start-class>mgo.Application</start-class>
+		<ws-version>v1</ws-version>
 	</properties>
 
 	<build>

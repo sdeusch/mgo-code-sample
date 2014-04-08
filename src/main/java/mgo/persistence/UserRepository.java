@@ -20,8 +20,5 @@ public interface UserRepository extends MongoRepository<User, String> {
     // don't show the password
     @Query(value="{ 'gender' : ?0 }", fields="{ 'username' : 1, 'lastName' : 1, 'gender' : 1}")
     public List<User> findByGender(Gender gndr);
-   
-    @Query(value="{ 'gender' : ?0 }", fields="{ 'username' : 1, 'lastName' : 1, 'gender' : 1}")
-    public List<User> findByLastNameAndGender(String lastName, Gender gender);
-    
+       
 }
