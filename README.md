@@ -1,5 +1,6 @@
 mgo-code-sample
 ===============
+<pre>
 
 1. Summary
 This application is a coding exercise demonstrating a REST web services in JSON using MongoDB. The functionality is following four endpoints:
@@ -87,7 +88,7 @@ I.e. begin to show data starting from element 0 and 10 elements in total. The Sp
 
 
 
-
+</pre>
 
 
 
