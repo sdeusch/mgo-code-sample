@@ -9,6 +9,9 @@ import mgo.persistence.UserRepository;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,26 +55,38 @@ public class UserController {
 	@RequestMapping("/users")
 	public @ResponseBody List<User> findUsers(
 			@RequestParam(value = "lastName", required = false) String lastName,
-			@RequestParam(value = "gender", required = false) Gender gender) {
+			@RequestParam(value = "gender", required = false) Gender gender,
+			@RequestParam(value= "start", required = false, defaultValue = "0") Integer start,
+			@RequestParam(value = "n", required = false, defaultValue = "10") Integer n) {
 
-		/**
-		 * This section needs more work, possibly introducing Criteria API and Pagination
+		/*
+		 * This section could be refactored using QueryBuilder API
+		 * for now using UserRepository which is provided by Spring Data, less flexible
+		 * Added Pagination on 4/9
 		 */
-	
 		if (lastName != null) {
-			return repository.findByLastName(lastName);
+			return repository.findByLastName(lastName,constructPageable(start, n));
 		}
 
 		if (gender != null) {
-			return repository.findByGender(gender);
+			return repository.findByGender(gender,constructPageable(start, n));
 		}
 
 		// or else return everything - test only
-		return repository.findAll();
+		return repository.findAll(constructPageable(start, n)).getContent();
 	}
 
+	/*
+	 * Building Pagination, always sort by 'lastName' asc. 
+	 */
+	private Pageable constructPageable(int startN, int resultsN) {
+		Pageable pageableSpec = new PageRequest(startN, resultsN, new Sort(Sort.Direction.ASC, "lastName"));
+        return pageableSpec;
+	}
+	
 	public void setRepository(UserRepository repository) {
 		this.repository = repository;
 	}
 
+	
 }

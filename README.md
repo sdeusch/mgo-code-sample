@@ -55,8 +55,11 @@ curl -X POST -H "Content-Type: application/json" -d '{"username":"Alice","passwo
 4.3 Finding Users 
 This is best shown by example (these URLs are case sensitive)
 http://localhost:8080/users?lastName=Smith  ... shows all users with lastName='Smith'.
+http://localhost:8080/users?lastName=Smith&start=0&n=1 ... with Pagination: starts at record 0, shows 1 element
 http://localhost:8080/users?gender=Male     ... shows all male users
 http://localhost:8080/users                 ... shows all users.
+http://localhost:8080/users?start=0&n=3     ... with Pagination: starts at record 0, shows 3 
+
 
 4.4 Healthcheck Endpoint 
 This endpoint shows the status of each externally connected dependency individually as well as
@@ -90,13 +93,6 @@ MongoDB is a document noSQL database which runs in its own process. It is very f
 5.1 Web service endpoint versioning
 The File Listing endpoint, http://localhost:8080/v1/list?dir=/Users, has a /v1/ component in the URL for version 1. 
 This is set at the controller level. It could be injected from a system wide runtime parameter for all controllers. 
-
-5.2 Pagination of Data
-Pagination of data can be achieve the same way for web pages that list tabular data. I.e. with two request parameters in the URL, e.g. 
-start=0 & n=10
-I.e. begin to show data starting from element 0 and 10 elements in total. The Spring Data Mongo API has methods to handle start, 
-end, number of results, and sort preference. Similar parameters would need to be attached to the URL, parsed from the request 
-and carried through to the data layer, in a robust way.
 
 
 </pre>

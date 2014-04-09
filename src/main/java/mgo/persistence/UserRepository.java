@@ -5,20 +5,20 @@ import java.util.List;
 import mgo.model.Gender;
 import mgo.model.User;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 
-public interface UserRepository extends MongoRepository<User, String> {
+public interface UserRepository extends PagingAndSortingRepository<User, String> {
 
+	// this method shows all 
     public User findByUsername(String username);
     
     // don't show the password 
     @Query(value="{ 'lastName' : ?0 }", fields="{ 'username' : 1, 'lastName' : 1, 'gender' : 1}")
-    public List<User> findByLastName(String lastName);
+    public List<User> findByLastName(String lastName, Pageable pageable);
     
-    // don't show the password
     @Query(value="{ 'gender' : ?0 }", fields="{ 'username' : 1, 'lastName' : 1, 'gender' : 1}")
-    public List<User> findByGender(Gender gndr);
-       
+    public List<User> findByGender(Gender gndr, Pageable pageable);
 }

@@ -15,6 +15,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserRepositoryTest {
@@ -24,9 +27,12 @@ public class UserRepositoryTest {
 	private List<User> people = new ArrayList<User>();
 	private List<User> smiths = new ArrayList<User>();
 	private List<User> males = new ArrayList<User>();
+	private Pageable pageableSpec = new PageRequest(0, 10, new Sort(
+			Sort.Direction.ASC, "lastName"));
 	
 	@Mock
 	private UserRepository repo;
+	
 
 	@Before
 	public void setUp() {
@@ -46,17 +52,17 @@ public class UserRepositoryTest {
 
 	@Test
 	public void testFindByLastName() {
-		when(repo.findByLastName("Smith")).thenReturn(smiths);
+		when(repo.findByLastName("Smith",pageableSpec)).thenReturn(smiths);
 
-		List<User> find = repo.findByLastName("Smith");
+		List<User> find = repo.findByLastName("Smith",pageableSpec);
 		assertEquals(sue, find.get(0));
 	}
 
 	@Test
-	public void testFindByGender() {
-		when(repo.findByGender(Gender.Male)).thenReturn(males);
+	public void testFindByGender() {		
+		when(repo.findByGender(Gender.Male,pageableSpec)).thenReturn(males);
 
-		List<User> find = repo.findByGender(Gender.Male);
+		List<User> find = repo.findByGender(Gender.Male,pageableSpec);
 		assertEquals(joe, find.get(0));
 	}
 
