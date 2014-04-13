@@ -1,4 +1,4 @@
-package mgo.healthcheck;
+package sun.healthcheck;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Configuration;

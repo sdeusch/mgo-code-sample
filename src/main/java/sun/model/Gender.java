@@ -1,4 +1,4 @@
-package mgo.model;
+package sun.model;
 
 public enum Gender {
 

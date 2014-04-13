@@ -1,4 +1,4 @@
-package mgo.model;
+package sun.model;
 
 import java.io.File;
 

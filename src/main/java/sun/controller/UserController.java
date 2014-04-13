@@ -1,11 +1,7 @@
-package mgo.controller;
+package sun.controller;
 
 import java.net.UnknownHostException;
 import java.util.List;
-
-import mgo.model.Gender;
-import mgo.model.User;
-import mgo.persistence.UserRepository;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import sun.model.Gender;
+import sun.model.User;
+import sun.persistence.UserRepository;
 
 @Controller
 public class UserController {

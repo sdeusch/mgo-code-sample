@@ -2,14 +2,15 @@ package controller;
 
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
-import mgo.controller.HealthcheckController;
-import mgo.healthcheck.MongoDBHealthCheck;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import sun.controller.HealthcheckController;
+import sun.healthcheck.MongoDBHealthCheck;
 
 
 @RunWith(MockitoJUnitRunner.class)

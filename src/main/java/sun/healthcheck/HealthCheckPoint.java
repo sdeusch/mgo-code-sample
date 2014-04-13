@@ -1,4 +1,4 @@
-package mgo.healthcheck;
+package sun.healthcheck;
 
 /**
  * Contract for health checked components 

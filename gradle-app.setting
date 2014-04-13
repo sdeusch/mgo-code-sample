@@ -9,7 +9,7 @@
   <setting name="setup-tab">
     <setting name="setup">
       <setting name="custom-gradle-executor"/>
-      <setting name="current-directory" value="/Users/deuscs01/Documents/workspace-sts-3.5.0.RELEASE/mgo-code-quizz"/>
+      <setting name="current-directory" value="/Users/deuscs01/Documents/workspace-sts-3.5.0.RELEASE/sun-code-quizz"/>
       <setting name="log-level" value="LIFECYCLE"/>
     </setting>
   </setting>

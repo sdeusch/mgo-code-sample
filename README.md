@@ -1,4 +1,4 @@
-mgo-code-sample
+sun-code-sample
 ===============
 <pre>
 

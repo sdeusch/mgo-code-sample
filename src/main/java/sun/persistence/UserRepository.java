@@ -1,18 +1,18 @@
-package mgo.persistence;
+package sun.persistence;
 
 import java.util.List;
-
-import mgo.model.Gender;
-import mgo.model.User;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
+import sun.model.Gender;
+import sun.model.User;
+
 
 public interface UserRepository extends PagingAndSortingRepository<User, String> {
 
-	// this method shows all 
+    // this method shows all 
     public User findByUsername(String username);
     
     // don't show the password 

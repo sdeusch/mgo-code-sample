@@ -6,10 +6,6 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
-import mgo.model.Gender;
-import mgo.model.User;
-import mgo.persistence.UserRepository;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +14,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+
+import sun.model.Gender;
+import sun.model.User;
+import sun.persistence.UserRepository;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserRepositoryTest {
